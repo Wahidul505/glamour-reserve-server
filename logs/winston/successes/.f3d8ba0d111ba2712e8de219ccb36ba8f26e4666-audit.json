@@ -1,0 +1,65 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/macbookair/Documents/level-2/prisma/assignment/logs/winston/successes/.f3d8ba0d111ba2712e8de219ccb36ba8f26e4666-audit.json",
+    "files": [
+        {
+            "date": 1695832132642,
+            "name": "/Users/macbookair/Documents/level-2/prisma/assignment/logs/winston/successes/phu-2023-27-09-22-success.log",
+            "hash": "0e515ea6846c17f745a66d0c6eb84c2005dad90bbcdac3ba6a332cf068fb23a8"
+        },
+        {
+            "date": 1695837484861,
+            "name": "/Users/macbookair/Documents/level-2/prisma/assignment/logs/winston/successes/phu-2023-27-09-23-success.log",
+            "hash": "bead0b4ef7d8923c0e19557f3171c446a8bda585fee510b3029ee69a5458e525"
+        },
+        {
+            "date": 1695837758184,
+            "name": "/Users/macbookair/Documents/level-2/prisma/assignment/logs/winston/successes/phu-2023-28-09-00-success.log",
+            "hash": "b9c33f066b1b88a78b0f0896ded140e02bcf3581c6e52903b48198e1ed258b63"
+        },
+        {
+            "date": 1695841265613,
+            "name": "/Users/macbookair/Documents/level-2/prisma/assignment/logs/winston/successes/phu-2023-28-09-01-success.log",
+            "hash": "5aaaec733bf1bb045d4ce3a1b67c5b821e956d416d3d7f08b1091df22bbf7bda"
+        },
+        {
+            "date": 1695874270091,
+            "name": "/Users/macbookair/Documents/level-2/prisma/assignment/logs/winston/successes/phu-2023-28-09-10-success.log",
+            "hash": "401d00c0324518c0f198b8ea731c544f052f1a469cfb07d193473d8119e79033"
+        },
+        {
+            "date": 1695877460917,
+            "name": "/Users/macbookair/Documents/level-2/prisma/assignment/logs/winston/successes/phu-2023-28-09-11-success.log",
+            "hash": "87e3000a5c37d2d09f59279680210ab9c6c3bcccab4d402e45137cc5794e5a2a"
+        },
+        {
+            "date": 1695880821394,
+            "name": "/Users/macbookair/Documents/level-2/prisma/assignment/logs/winston/successes/phu-2023-28-09-12-success.log",
+            "hash": "90dfa1c2944e69c893c78ca0d16a53ba2dd4f086b92bf6eabd59f8eaa820d55a"
+        },
+        {
+            "date": 1695891937022,
+            "name": "/Users/macbookair/Documents/level-2/prisma/assignment/logs/winston/successes/phu-2023-28-09-15-success.log",
+            "hash": "fdc9c94b70d62c871ad3a696b28175bff941a27f5c27a3bc6294276f71e792c9"
+        },
+        {
+            "date": 1695914554231,
+            "name": "/Users/macbookair/Documents/level-2/prisma/assignment/logs/winston/successes/phu-2023-28-09-21-success.log",
+            "hash": "72fe469453ab18222f1e23a7c2d859932913e5e516250109cfb1fb6b5e391b3b"
+        },
+        {
+            "date": 1695916988151,
+            "name": "/Users/macbookair/Documents/level-2/prisma/assignment/logs/winston/successes/phu-2023-28-09-22-success.log",
+            "hash": "65ada89d02bda074410fb1f25c294f9c38d1d8138dd61264df5debede3f58dc7"
+        },
+        {
+            "date": 1695921918021,
+            "name": "/Users/macbookair/Documents/level-2/prisma/assignment/logs/winston/successes/phu-2023-28-09-23-success.log",
+            "hash": "df9bc278d1219798ae19e77fc3636b3630093ce9d7d3317795db561660b4cb74"
+        }
+    ],
+    "hashType": "sha256"
+}

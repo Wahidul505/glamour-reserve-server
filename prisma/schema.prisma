@@ -1,0 +1,134 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String            @id @default(uuid())
+  name             String
+  email            String            @unique()
+  password         String
+  role             UserRole          @default(client)
+  phone            String
+  address          String
+  profileImg       String?
+  createdAt        DateTime          @default(now())
+  reviewAndRatings ReviewAndRating[]
+  bookings         Booking[]
+  feedbacks        Feedback[]
+
+  @@map("users")
+}
+
+model Category {
+  id               String            @id @default(uuid())
+  title            String
+  information      Json
+  image            String?
+  createdAt        DateTime          @default(now())
+  makeoverServices MakeoverService[]
+
+  @@map("categories")
+}
+
+model MakeoverService {
+  id               String            @id @default(uuid())
+  title            String
+  price            Float
+  image            String?
+  information      Json
+  availability     Boolean           @default(true)
+  categoryId       String
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  category         Category          @relation(fields: [categoryId], references: [id])
+  reviewAndRatings ReviewAndRating[]
+  bookings         Booking[]
+
+  @@map("makeover_services")
+}
+
+model ReviewAndRating {
+  id                String          @id @default(uuid())
+  review            String?
+  rating            Float?
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  userId            String
+  user              User            @relation(fields: [userId], references: [id])
+  makeoverServiceId String
+  makeoverService   MakeoverService @relation(fields: [makeoverServiceId], references: [id])
+
+  @@map("reviews_and_ratings")
+}
+
+model Feedback {
+  id        String   @id @default(uuid())
+  comment   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("feedbacks")
+}
+
+model Booking {
+  id                   String          @id @default(uuid())
+  status               BookingStatus   @default(pending)
+  startTime            String
+  endTime              String
+  date                 String
+  contactNo            String
+  alternativeContactNo String
+  createdAt            DateTime        @default(now())
+  updatedAt            DateTime        @updatedAt
+  userId               String
+  user                 User            @relation(fields: [userId], references: [id])
+  makeoverServiceId    String
+  makeoverService      MakeoverService @relation(fields: [makeoverServiceId], references: [id])
+
+  @@map("bookings")
+}
+
+model Blog {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+
+  @@map("blogs")
+}
+
+model FAQ {
+  id        String   @id @default(uuid())
+  question  String
+  answer    String
+  createdAt DateTime @default(now())
+
+  @@map("faqs")
+}
+
+enum UserRole {
+  client
+  admin
+  super_admin
+}
+
+enum BookingStatus {
+  pending
+  confirmed
+  rejected
+}
+
+enum BlogAndFaqStatus {
+  active
+  archive
+}

@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MakeoverServiceRoutes = void 0;
+const express_1 = __importDefault(require("express"));
+const auth_1 = __importDefault(require("../../app/middlewares/auth"));
+const validateRequest_1 = __importDefault(require("../../app/middlewares/validateRequest"));
+const user_1 = require("../../enums/user");
+const makeoverService_controller_1 = require("./makeoverService.controller");
+const makeoverService_validation_1 = require("./makeoverService.validation");
+const router = express_1.default.Router();
+router.post('/', (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.SUPER_ADMIN), (0, validateRequest_1.default)(makeoverService_validation_1.MakeoverServiceValidation.create), makeoverService_controller_1.MakeoverServiceController.insertIntoDB);
+router.get('/', makeoverService_controller_1.MakeoverServiceController.getAllFromDB);
+router.get('/:id', makeoverService_controller_1.MakeoverServiceController.getDataById);
+router.get('/:categoryId/category', makeoverService_controller_1.MakeoverServiceController.getByCategory);
+router.patch('/:id', (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.SUPER_ADMIN), (0, validateRequest_1.default)(makeoverService_validation_1.MakeoverServiceValidation.update), makeoverService_controller_1.MakeoverServiceController.updateData);
+router.delete('/:id', (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.SUPER_ADMIN), makeoverService_controller_1.MakeoverServiceController.deleteData);
+exports.MakeoverServiceRoutes = router;

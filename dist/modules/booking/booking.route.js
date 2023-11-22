@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BookingRoutes = void 0;
+const express_1 = __importDefault(require("express"));
+const auth_1 = __importDefault(require("../../app/middlewares/auth"));
+const user_1 = require("../../enums/user");
+const booking_controller_1 = require("./booking.controller");
+const router = express_1.default.Router();
+router.post('/', booking_controller_1.BookingController.insertIntoDB);
+router.patch('/:id/update-status', (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.SUPER_ADMIN), booking_controller_1.BookingController.updateBookingStatus);
+router.get('/my-booking', (0, auth_1.default)(user_1.ENUM_USER_ROLE.CLIENT), booking_controller_1.BookingController.getMyBookings);
+router.get('/:id/my-booking', (0, auth_1.default)(user_1.ENUM_USER_ROLE.CLIENT), booking_controller_1.BookingController.getMyBookingById);
+router.delete('/:id/my-booking', (0, auth_1.default)(user_1.ENUM_USER_ROLE.CLIENT), booking_controller_1.BookingController.deleteMyBooking);
+router.get('/:date/by-date', booking_controller_1.BookingController.getBookingsByDate);
+router.get('/', (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.SUPER_ADMIN), booking_controller_1.BookingController.getAllFromDB);
+router.get('/:id', (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.SUPER_ADMIN), booking_controller_1.BookingController.getDataById);
+router.patch('/:id', (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.SUPER_ADMIN), booking_controller_1.BookingController.updateData);
+router.delete('/:id', (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.SUPER_ADMIN), booking_controller_1.BookingController.deleteData);
+exports.BookingRoutes = router;
